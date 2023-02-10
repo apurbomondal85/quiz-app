@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/style.css">
+</head>
+<body class="h-screen">
+    <main class="max-w-4xl w-2/3 h-4/5 mx-auto py-6 px-6 bg-primary">
+        <div class="w-full h-full flex justify-center items-center hidden">
+            <div>
+
+            </div>
+        </div>
+        <section class="">
+            <div class="flex justify-between items-center">
+                <p class="text-gray">Quiz No <span id="quiz-count">1</span></p>
+                <p class="text-gray">Question <span id="question-count">0</span> out of 10</span></p>
+            </div>
+            <div class="p-16">
+                <h1 id="question-title" class="text-slate-100 text-2xl mb-12">What file extension (file type) will you use to save a website file?</h1>
+
+                <div class="w-10/12 mx-auto flex flex-col justify-center">
+                    <ul>
+                        <li class="question1 p-3 items-center flex border-2 border-slate-200 mb-4">
+                            <input type="radio" class="checked w-6 h-6 rounded-full text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500" name="checked" id="checked1">
+                            <label for="checked1" class="mx-auto text-slate-100" id="ques1">html</label>
+                        </li>
+                        <li class="question1 p-3 items-center flex border-2 border-slate-200 mb-4">
+                            <input type="radio" class="checked w-6 h-6 rounded-full text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500" name="checked" id="checked2">
+                            <label for="checked2" class="mx-auto text-slate-100" id="ques2">.web</label>
+                        </li>
+                        <li class="question1 p-3 items-center flex border-2 border-slate-200 mb-4">
+                            <input type="radio" class="checked w-6 h-6 rounded-full text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500" name="checked" id="checked3">
+                            <label for="checked3" class="mx-auto text-slate-100" id="ques3">.html</label>
+                        </li>
+                        <li class="question1 p-3 items-center flex border-2 border-slate-200 mb-4">
+                            <input type="radio" class="checked w-6 h-6 rounded-full text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500" name="checked" id="checked4">
+                            <label for="checked4" class="mx-auto text-slate-100" id="ques4">chrome</label>
+                        </li>
+                    </ul>
+                    <button type="button" id="next" class="w-28 mx-auto focus:outline-none text-white bg-purple-700 hover:bg-purple-800 font-medium rounded-lg text-xl px-8 py-2.5 mt-4 flex justify-center items-center">Next</button>
+                    <button type="button" id="prev" class="w-28 mx-auto focus:outline-none text-white bg-purple-700 hover:bg-purple-800 font-medium rounded-lg text-xl px-8 py-2.5 mt-4 flex justify-center items-center">Previous</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script src="app.js"></script>
+</body>
+</html>
