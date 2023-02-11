@@ -82,7 +82,7 @@ const questionList = [
     }
 ];
 
-
+const quizSection = document.querySelector('.quiz-section');
 const quizCount = document.getElementById('quiz-count');
 const questionCount = document.getElementById('question-count');
 const questionTitle = document.getElementById('question-title');
@@ -91,27 +91,67 @@ const ques2 = document.getElementById('ques2');
 const ques3 = document.getElementById('ques3');
 const ques4 = document.getElementById('ques4');
 const next = document.getElementById('next');
-const prev = document.getElementById('prev');
-const checks = document.getElementsByClassName('checked');
-prev.style.display = 'none';
+const refresh = document.getElementById('refresh');
+const inputChecks = document.getElementsByClassName('checked');
+const totalWin = document.getElementById('total-win');
+const totalQuiz = document.getElementById('total-quiz');
+const resultDisplay = document.querySelector('.result-display');
+resultDisplay.style.display = "none";
 
-let index = 1;
+let i = 1;
+let index = 0;
+let count = 0;
+let win = 0;
+let lose = 0;
 
 function quiz() {
-    questionTitle.innerHTML = questionList[index].title;
-    ques1.innerText = questionList[index].a;
-    ques2.innerText = questionList[index].b;
-    ques3.innerText = questionList[index].c;
-    ques4.innerText = questionList[index].d;
+    questionTitle.innerHTML = questionList[i].title;
+    ques1.innerText = questionList[i].a;
+    ques2.innerText = questionList[i].b;
+    ques3.innerText = questionList[i].c;
+    ques4.innerText = questionList[i].d;
 }
-next.addEventListener('click', ()=>{
-    if (index < questionList.length) {
-        quiz();
-        index++;
-        quizCount.innerText = `${index}`;
-    }else{
-        next.style.display = 'none';
-        prev.style.display = '';
 
+function quizTest() {
+    let c = Array.from(inputChecks);
+    let checks;
+    let checkValue;
+    c.forEach((event)=>{
+            checks = event.checked;
+            checkValue = event.value;
+        if (checks) {
+            let answer = questionList[count].ans;
+            if (checkValue === answer) {
+                win++;
+                count++;
+                event.checked = false;
+            }else{
+                count++;
+                event.checked = false;
+            }
+        }
+    })
+    
+    totalWin.innerText = win;
+    totalQuiz.innerText = questionList.length;
+}
+
+
+next.addEventListener('click', ()=>{
+    if (i <= questionList.length) {
+        if (i >= questionList.length - 1) {
+            quizSection.style.display = "none";
+            resultDisplay.style.display = "flex";
+        }
+        quiz();
+        quizTest();
+        i++;
+        index++;
+        quizCount.innerText = `${i}`;
+        questionCount.innerText = `${i}`
     }
 })
+
+refresh.addEventListener('click', ()=>{
+    location.reload();
+});
